@@ -1292,6 +1292,11 @@ provide('setToLastMonth', setToLastMonth)
 provide('setToCustomShortcut', setToCustomShortcut)
 
 const displayDateTime = (pickerValue)=> {
+  if (Object.keys(props.modelValue).length === 0) {
+    clearPicker();
+    return "";
+  }
+  
   if(pickerValue) {
     if (asRange()) {
       const [s, e] = pickerValue.split(props.separator)
